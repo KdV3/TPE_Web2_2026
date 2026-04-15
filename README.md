@@ -1,4 +1,4 @@
-# TPE_Web2_2026##Tienda electrónica
+##Tienda electrónica
 
 #Integrantes
 Klaus del Valle (kldelvalle3@gmail.com)
@@ -10,3 +10,4 @@ Tienda online de diferentes productos electrónicos
 
 #Diagrama de entidad relación (DER)
 
+![alt text](DER.png)
