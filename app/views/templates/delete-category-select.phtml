@@ -1,0 +1,19 @@
+<div class="card h-10">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Eliminar categoria</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="<?= BASE_URL ?>tienda/deleteCategory">
+            <select required name="idCategory" class="form-select">
+                <option value="">Seleccionar...</option>
+                    <?php foreach ($categories as $category) { ?>
+                <option value="<?php echo $category->id_categoria;?>"> <?php echo $category->nombre;?> </option>
+                    <?php } ?>
+            </select>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Eliminar categoria</button>
+                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+            </div>
+        </form>
+    </div>
+</div>

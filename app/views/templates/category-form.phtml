@@ -1,0 +1,17 @@
+<div class="card h-10">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Nueva categoria</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="<?= BASE_URL ?>tienda/addCategory">
+            <div class="mb-3">
+                <label class="form-label">Nombre <span class="text-danger">*</span></label>
+                <input required name="name" type="text" class="form-control" placeholder="Nombre de la categoria">
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Crear categoria</button>
+                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+            </div>
+        </form>
+    </div>
+</div>

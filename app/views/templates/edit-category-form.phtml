@@ -1,0 +1,23 @@
+<div class="card h-10">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Editar categoria</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="<?= BASE_URL ?>tienda/editCategory">
+            <select required name="idCategory" class="form-select">
+                <option value="">Seleccionar...</option>
+                    <?php foreach ($categories as $category) { ?>
+                <option value="<?php echo $category->id_categoria;?>"> <?php echo $category->nombre;?> </option>
+                    <?php } ?>
+            </select>
+            <div class="mb-3">
+                <label class="form-label">Nombre <span class="text-danger">*</span></label>
+                <input required name="name" type="text" class="form-control" placeholder="Nombre de la categoria">
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Editar categoria</button>
+                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+            </div>
+        </form>
+    </div>
+</div>

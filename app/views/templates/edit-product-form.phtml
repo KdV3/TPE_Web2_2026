@@ -1,0 +1,45 @@
+<div class="card h-100">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Editar producto</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="<?= BASE_URL ?>producto/editProduct/<?= $product->id_producto ?>">
+            <div class="mb-3">
+                <label class="form-label">Nombre <span class="text-danger">*</span></label>
+                <textarea required name="name" class="form-control" rows="5"><?= $product->nombre ?></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Descripción <span class="text-danger">*</span></label>
+                <textarea required name="description" class="form-control" rows="5"><?= $product->descripcion ?></textarea>
+            </div>
+            <div class="row">
+                <div class="mb-3">
+                    <label class="form-label">Categoria <span class="text-danger">*</span></label>
+                    <select required name="category" class="form-select">
+                        <option value="">Seleccionar...</option>
+                        
+                        <?php foreach ($categories as $category) { ?>
+                        <option value="<?php echo $category->id_categoria;?>"> <?php echo $category->nombre;?> </option>
+                        <?php } ?>
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Precio<span class="text-danger">*</span></label>
+                    <input type="number" name="price" step=".01" value=<?= $product->precio ?>>
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label">Descuento</label>
+                    <input type="number" name="discount" value=<?= $product->descuento ?>>
+                </div>
+                
+                <label class="form-label">Imagen</label>
+                <input name="img" type="text" class="form-control" value=<?= $product->direccion_img ?>>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary">Editar producto</button>
+                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+            </div>
+        </form>
+    </div>
+</div>

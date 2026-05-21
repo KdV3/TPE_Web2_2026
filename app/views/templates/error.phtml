@@ -1,0 +1,18 @@
+<?php require __DIR__ . '/layout/header.phtml' ?>
+
+<main class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Error</h4>
+        <p><?= htmlspecialchars($err ?? 'Se ha producido un error inesperado. Por favor, intente nuevamente.'); ?></p>
+        <hr>
+        <div class="">
+          <a href="<?= BASE_URL ?>" class="btn btn-primary">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<?php require __DIR__ . '/layout/footer.phtml' ?>

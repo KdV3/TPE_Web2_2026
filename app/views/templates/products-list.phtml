@@ -1,0 +1,80 @@
+    <form action="<?= BASE_URL ?>tienda" method="POST">
+      <label class="form-label">Seleccionar Categoria</label>
+      <select required name="idCategory" class="form-select">  
+           <option value="">Seleccionar...</option>                   
+          <?php foreach ($categories as $category) { ?>
+            <option value="<?php echo $category->id_categoria;?>"> <?php echo $category->nombre;?> </option>
+          <?php } ?>
+      </select>
+      <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </form>
+
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">Productos (<?= $count ?>)</h5>
+  </div>
+
+   <table class="table table-hover mb-0 align-middle">
+     <thead class="table-light">
+       <tr>
+         <th style="width: 60px;">#</th>
+         <th style="width: 120px;">Nombre</th>
+         <th style="width: 150px;">Descripcion</th>
+         <th style="width: 140px;">Categoria</th>
+         <th style="width: 160px;">Precio</th>
+         <th style="width: 150px;">Descuento</th>
+         <th style="width: 140px;">Publicacion</th>
+         <th style="width: 160px;">Vendedor</th>
+        <?php if(isset($_SESSION['id'])){?><th style="width: 160px;">Accion</th><?php } ?>
+       </tr>
+     </thead>
+
+     <tbody>
+       <?php foreach ($products as $product) { ?>
+         <tr>
+           <td>
+             <strong>#<?= htmlspecialchars($product->id_producto); ?></strong>
+           </td>
+
+           <td>
+             <a href="<?= BASE_URL ?>producto/<?= urlencode($product->id_producto) ?>/<?= urlencode($product->nombre) ?>"><?= htmlspecialchars($product->nombre); ?></a>
+           </td>
+
+           <td>
+            <?= htmlspecialchars($product->descripcion); ?>
+           </td>
+
+           <td>
+
+               <?php $i = 0;  while ($categories[$i]->id_categoria != $product->id_categoria){ $i++;}?> <?= htmlspecialchars($categories[$i]->nombre); ?>
+
+           </td>
+           
+            <td>
+               <?= htmlspecialchars($product->precio - ($product->precio*($product->descuento/100)) ); ?>
+           </td>
+
+            <td>
+               <?= htmlspecialchars($product->descuento); ?> %
+           </td>
+
+           <td>
+               <?= htmlspecialchars($product->fecha_publicacion); ?>
+           </td>
+
+           <td>
+            <?= $i = 0;  while ($vendors[$i]->id_vendedor != $product->id_vendedor){ $i++;} ?>
+             <a href="<?= BASE_URL ?>vendedor/<?=$vendors[$i]->nombre; ?>"><?=htmlspecialchars($vendors[$i]->nombre); ?></a>
+           </td>
+           <td>
+            <?php if(isset($_SESSION['id']) && ($_SESSION['id'] === $product->id_vendedor)){?>
+             <a href="<?= BASE_URL ?>producto/<?= urlencode($product->id_producto) ?>/<?= urlencode($product->nombre) ?>" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></a>
+             <a href="<?= BASE_URL ?>producto/deleteProduct/<?= $product->id_producto ?>" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></a>
+           </td>
+         </tr>
+       <?php } } ?>
+     </tbody>
+   </table>
+ </div>

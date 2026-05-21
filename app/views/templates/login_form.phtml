@@ -1,0 +1,30 @@
+<?php require __DIR__ . '/layout/header.phtml' ?>
+
+<main class="container mt-4">
+
+    <div class="card h-100">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Login</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="<?= BASE_URL ?>login">
+                <div class="mb-3">
+                    <label class="form-label">e-mail <span class="text-danger">*</span></label>
+                    <input required name="email" type="text" class="form-control" placeholder="user@mail.com">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contraseña <span class="text-danger">*</span></label>
+                    <input required name="password" type="password" class="form-control" placeholder="password">
+                </div>
+                
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<?php require __DIR__ . '/layout/footer.phtml' ?>

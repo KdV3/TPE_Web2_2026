@@ -1,0 +1,51 @@
+<?php require __DIR__ . '/layout/header.phtml' ?>
+
+<main class="container mt-4">
+
+  <div class="row">
+    
+  
+         <?php 
+            if (isset($_SESSION["id"])) {
+
+            ?>
+            <aside class="col-lg-4 mb-3 gap-2">
+
+            <?php require __DIR__ . '/product-form.phtml' ?>
+            
+          </aside>
+
+            
+            <?php }  ?>  
+        
+        
+
+        <section class="col-lg-8 mb-3">
+
+          <?php require __DIR__ . '/products-list.phtml' ?>
+
+
+        </section>
+
+          <?php 
+            if (isset($_SESSION["id"])) {
+
+            ?>
+            
+            <section class="col-lg-8 mb-3">
+                <?php  
+                require __DIR__ . '/category-form.phtml';
+                    
+                require __DIR__ . '/edit-category-form.phtml';
+
+                
+                require __DIR__ . '/delete-category-select.phtml';
+                ?>
+            <?php }  ?>  
+
+  </div>
+
+</main>
+
+<?php require __DIR__ . '/layout/footer.phtml' ?>
+

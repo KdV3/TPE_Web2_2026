@@ -1,0 +1,29 @@
+<?php require __DIR__ . '/layout/header.phtml' ?>
+
+<main class="container mt-4">
+
+  <div class="row">
+  
+         <?php 
+            if (isset($_SESSION["id"]) && ($_SESSION["id"] === $vendor->id_vendedor)) {
+
+            ?>
+            <aside class="col-lg-4 mb-3 gap-2">
+
+            <?php require __DIR__ . '/edit-vendor-form.phtml' ?>
+
+          </aside>
+            
+            <?php }  ?>  
+
+        <section class="col-lg-8 mb-3">
+
+          <?php require __DIR__ . '/vendor-profile.phtml' ?>
+
+        </section>
+
+  </div>
+
+</main>
+
+<?php require __DIR__ . '/layout/footer.phtml' ?>
