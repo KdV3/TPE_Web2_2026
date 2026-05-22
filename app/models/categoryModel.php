@@ -8,22 +8,6 @@ class CategoryModel extends Model{
       Model::__construct();
    }
 
-  public function getAllCategories() {
-      $query = $this->db->prepare('SELECT * FROM categoria');
-      $query->execute();
-      $categories = $query->fetchAll(PDO::FETCH_OBJ);
-
-      return $categories;
-   }
-
-  public function getAllVendors() {
-      $query = $this->db->prepare('SELECT * FROM vendedor');
-      $query->execute();
-      $vendors = $query->fetchAll(PDO::FETCH_OBJ);
-
-     return $vendors;
-   }
-
    public function getCategoryByName($name) {
       $query = $this->db->prepare('SELECT * FROM categoria WHERE nombre = ?');
       $query->execute([$name]);
